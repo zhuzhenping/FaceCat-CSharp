@@ -1,128 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <html xmlns="facecat">
   <head>
-    <script type="text/javascript" language="facecat">
-    </script>
   </head>
   <body>
-    <div type="splitlayout" name="divMain2" layoutstyle="toptobottom" candragsplitter="true" dock="fill" size="1000,1000" datumsize="400,400" splitterposition="60,0" bordercolor="none" backcolor="none">
-
-      <div bordercolor="none" backcolor="none" padding="5,5,5,5">
-        <div name="divCapital" location="0,0" bordercolor="none" backcolor="-200000000163" dock="fill">
-          <label name="Label" text="资金余额:" location="13,8" size="63,17" font="Default,14" />
-          <label name="lblCapitalBalance" text="--" location="86,8" size="100,20" font="Default,14" />
-          <label name="Labe3" text="冻结金额:" location="13,32" size="59,20" font="Default,14" />
-          <label name="lblFrozenCash" text="--" location="86,32" size="100,20" font="Default,14" />
-          <label name="Labe5" text="可用金额:" location="195,8" size="60,20" font="Default,14" />
-          <label name="lblAvailable" text="--" location="270,8" size="100,20" font="Default,14" />
-          <label name="Labe7" text="可取金额:" location="195,32" size="65,20" font="Default,14" />
-          <label name="lblWithdrawQuota" text="--" location="269,32" size="100,20" font="Default,14" />
-          <label name="Labe9" text="股票市值:" location="406,8" size="66,20" font="Default,14" />
-          <label name="lblStockValue" text="--" location="481,8" size="100,20" font="Default,14" />
-          <label name="Labe11" text="总资产:" location="406,32" size="51,20" font="Default,14" />
-          <label name="lblTotalCapital" text="--" location="481,32" size="100,20" font="Default,14" />
-          <label name="Label5" text="成交笔数:" location="577,8" size="66,20" font="Default,14" />
-          <label name="Label6" text="委托笔数:" location="579,32" size="51,20" font="Default,14" />
-          <label name="lblTradeCount" text="--" location="653,8" size="100,20" font="Default,14" />
-          <label name="lblOrderCount" text="--" location="653,32" size="100,20" font="Default,14" />
+  <div type="splitlayout" layoutstyle="lefttoright" bordercolor="none" dock="fill" size="400,400" candragsplitter="true" splitmode="percentsize" splitterposition="133,1">
+      <div type="splitlayout" layoutstyle="toptobottom" bordercolor="none" dock="fill" size="400,400" candragsplitter="true" splitmode="percentsize" splitterposition="267,1">
+    <div type="splitlayout" layoutstyle="toptobottom" bordercolor="none" dock="fill" size="400,400" candragsplitter="true" splitmode="percentsize" splitterposition="200,1">
+        <div name="div1" />
+        <div name="div2" />
         </div>
-      </div>
-      <!--下层-->
-      <div type="splitlayout" name="divBottom" candragsplitter="true" dock="fill" layoutstyle="bottomtotop" size="400,450" splitterposition="0,0" bordercolor="none" backcolor="none">
-        <div type="splitlayout" name="divBottom" candragsplitter="true" dock="fill" layoutstyle="toptobottom" size="400,450" splitterposition="230,0" bordercolor="none" backcolor="none">
-          <div bordercolor="none" backcolor="none" padding="5,5,5,5">
-          <div type="splitlayout" name="divTrade" candragsplitter="true" dock="fill" layoutstyle="lefttoright" size="400,450" splitterposition="250,0" bordercolor="none" backcolor="none">
-            <div bordercolor="none" padding="0,0,5,0" backcolor="none" dock="fill">
-              <div type="tab" name="tabTrade" dock="fill" backcolor="-200000000163" bordercolor="none">
-                <div type="tabpage" name="pageTrade" text="交易" headersize="100,20" bordercolor="none" backcolor="none">
-                  <label name="Label2" text="代码:" location="10,17" size="100,20" font="Default,12" />
-                  <input type="text" name="txtCode" bordercolor="-200000000116" textcolor="-200000000102" location="56,10" size="150,30" font="Default,12" temptext="请输入代码" temptextcolor="-200000000116" />
-                  <label name="Label3" text="价格:" location="10,56" size="100,20" font="Default,12" />
-<input type="text" name="spinPrice" location="56,49" size="150,30" temptext="请输入价格" bordercolor="-200000000116" textcolor="-200000000102" font="Default,12" temptextcolor="-200000000116"/>
-                  <label name="Label4" text="数量:" location="10,94" size="100,20" font="Default,12" />
-<input type="text" name="spinQty" location="56,89" size="150,30" temptext="请输入数量" bordercolor="-200000000116" textcolor="-200000000102" font="Default,12" temptextcolor="-200000000116"/>
-                  <input type="custom" cid="ribbonbutton2" name="btnBuy" text="买入" location="8,129" size="97,40" />
-                  <input type="custom" cid="ribbonbutton2" name="btnSell" text="卖出" location="112,129" size="97,40" />
-                </div>
-              </div>
-            </div>
-            <!--持仓页-->
-            <div type="tab" name="tabPositionAccount" headerheight="25" bordercolor="none" backcolor="-200000000163" >
-              <div type="tabpage" name="pagePositionAccount" text="持仓" headersize="100,20" bordercolor="none" backcolor="none">
-                <!--持仓表格-->
-                <table name="gridPositionAccount" dock="fill" headerheight="25" gridlinecolor="none" allowpreviewsevent="true" allowdragscroll="true" bordercolor="none" backcolor="none">
-                  <tr>
-                    <th name="colPF1" text="证券代码" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF2" text="证券名称" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF3" text="股票余额" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF4" text="可用余额" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF5" text="实际数量" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF6" text="冻结数量" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF7" text="盈亏" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF8" text="成本价" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF9" text="盈亏比(%)" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF10" text="市价" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF11" text="市值" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF12" text="可申赎数量" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF13" text="交易市场" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colPF14" text="股东帐户" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  </tr>
-                </table>
-              </div>
-            </div>
-            </div>
-          </div>
-          <div bordercolor="none" backcolor="none" padding="5,5,5,5">
-          <!--委托页-->
-            <div type="tab" name="tabOrderAccount" bordercolor="none" backcolor="-200000000163" dock="fill">
-              <div type="tabpage" name="pageOrderAccount" text="委托" headersize="100,20" bordercolor="none" backcolor="none">
-                <!--委托表格-->
-                <table name="gridOrderAccount" dock="fill" headerheight="25" gridlinecolor="none" allowpreviewsevent="true" allowdragscroll="true" bordercolor="none" backcolor="none"> 
-                  <tr>
-                    <th name="colOF1" text="委托时间" width="160" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colOF2" text="证券代码" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colOF3" text="证券名称" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colOF4" text="操作" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colOF5" text="备注" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colOF6" text="委托数量" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colOF7" text="成交数量" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colOF8" text="撤销数量" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colOF9" text="委托价格" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colOF10" text="订单类型" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colOF11" text="成交均价" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                    <th name="colOF12" text="合同编号" width="100" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </div>
+        <div name="div3" />
+        </div>   
+   <div type="splitlayout" layoutstyle="lefttoright" bordercolor="none" dock="fill" size="400,400" candragsplitter="true" splitmode="percentsize" splitterposition="200,1">
+    <div type="splitlayout" layoutstyle="toptobottom" bordercolor="none" dock="fill" size="400,400" candragsplitter="true" splitmode="percentsize" splitterposition="267,1">
+    <div type="splitlayout" layoutstyle="toptobottom" bordercolor="none" dock="fill" size="400,400" candragsplitter="true" splitmode="percentsize" splitterposition="200,1">
+        <div name="div4" />
+        <div name="div5" />
         </div>
-        <div bordercolor="none" backcolor="none" padding="5,5,5,5">
-          <div type="tab" name="tabTradeAccount" selectedindex="0" bordercolor="none" backcolor="-200000000163" dock="fill">
-            <div type="tabpage" name="pageTradeAccount" text="成交" headersize="100,20" location="3,23" size="1479,179" bordercolor="none" backcolor="none">
-              <!--成交表格-->
-              <table name="gridTradeAccount" dock="fill" location="0,0" size="954,340" headerheight="25" gridlinecolor="none" allowpreviewsevent="true" allowdragscroll="true" bordercolor="none" backcolor="none">
-                <tr>
-                  <th name="colTF1" text="成交时间" width="160" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  <th name="colTF2" text="证券代码" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  <th name="colTF3" text="证券名称" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  <th name="colTF4" text="操作" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  <th name="colTF6" text="成交数量" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  <th name="colTF7" text="成交均价" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  <th name="colTF8" text="成交金额" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  <th name="colTF9" text="合同编号" width="100" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  <th name="colTF10" text="成交编号" width="100" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  <th name="colTF11" text="撤单数量" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                  <th name="colTF12" text="股票余额" width="80" allowresize="true" backcolor="-200000000193" bordercolor="-200000000108" textcolor="-200000000102"/>
-                </tr>
-              </table>
-            </div>
-            <div type="tabpage" name="pageChart" text="资金曲线" headersize="100,20" bordercolor="none" backcolor="none">
-              <chart name="chart" dock="fill" />
-            </div>
-          </div>
+        <div name="div6" />
         </div>
-      </div>
+    <div type="splitlayout" layoutstyle="toptobottom" bordercolor="none" dock="fill" size="400,400" candragsplitter="true" splitmode="percentsize" splitterposition="267,1">
+    <div type="splitlayout" layoutstyle="toptobottom" bordercolor="none" dock="fill" size="400,400" candragsplitter="true" splitmode="percentsize" splitterposition="200,1">
+        <div name="div7" />
+        <div name="div8" />
+        </div>
+        <div name="div9" />
+        </div>
+        </div>
     </div>
   </body>
 </html>
